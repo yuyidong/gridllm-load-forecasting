@@ -54,9 +54,9 @@ def make_rolling_windows(
             ForecastWindow(
                 context=values[start:context_end],
                 target=values[context_end:target_end],
-                target_timestamps=frame.loc[context_end : target_end - 1, timestamp_col].reset_index(
-                    drop=True
-                ),
+                target_timestamps=frame[timestamp_col]
+                .iloc[context_end:target_end]
+                .reset_index(drop=True),
             )
         )
 
