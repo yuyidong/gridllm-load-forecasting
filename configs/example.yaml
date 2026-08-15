@@ -1,0 +1,17 @@
+data:
+  path: data/sample_load.csv
+  timestamp_col: timestamp
+  value_col: load_kw
+
+forecast:
+  context_length: 48
+  horizon: 24
+  stride: 24
+
+model:
+  name: seasonal_naive
+  season_length: 24
+
+output:
+  directory: outputs/demo
+

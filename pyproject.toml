@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gridllm-load-forecasting"
+version = "0.1.0"
+description = "LLM and time-series foundation model toolkit for short-term electricity load forecasting."
+readme = "PROJECT_GUIDE.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "yuyidong" }]
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.6",
+]
+
+[project.scripts]
+gridllm-forecast = "gridllm_forecasting.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+ignore = ["TRY004", "UP007"]
